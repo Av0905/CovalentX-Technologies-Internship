@@ -134,6 +134,11 @@ Weather application using REST API.
 
 A modern portfolio website showcasing my skills, projects, education, certifications, and contact details.
 
+## PDF WHICH CONTAINS THE REPORT OF WHOLE INTERNSHIP 
+
+### Description
+REPORT OF INTERNSHIP AND ITS TASK WITH OUTPUT IN THE LAST SECTION OF REPORT, IT CONTAINS ALL THE DETAILS ABOUT THE INTERNSHIP SO PLEASE GO THROUGH IT.
+
 ### Features
 
 - Responsive Design
