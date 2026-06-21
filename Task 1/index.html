@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CloudSync SaaS</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <!-- NAVBAR -->
+    <header class="header" id="header">
+        <nav class="navbar">
+            <div class="logo">
+                <i class="fa-solid fa-cloud"></i>
+                <span>CloudSync</span>
+            </div>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <div class="nav-right">
+                <button class="theme-btn" id="themeToggle">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <a href="#pricing" class="start-btn">
+                    Start Free
+                </a>
+                <div class="menu-btn" id="menuBtn">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero reveal">
+        <div class="hero-left">
+            <div class="tag">
+                <span class="pulse-dot"></span> Next Generation SaaS Platform
+            </div>
+
+            <h1>
+                Scale Your <br>
+                Business With <br>
+                <span>Smarter Automation</span>
+            </h1>
+
+            <p>
+                Powerful analytics, workflow automation,
+                and AI-driven insights designed to help
+                modern teams move faster and achieve
+                more with less effort.
+            </p>
+
+            <div class="hero-buttons">
+                <button class="primary-btn" id="getStartedBtn">
+                    Get Started
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+                <button class="secondary-btn" id="watchDemoBtn">
+                    <i class="fa-solid fa-circle-play"></i>
+                    Watch Demo
+                </button>
+            </div>
+
+            <div class="hero-features">
+                <div class="feature-item">
+                    <i class="fa-regular fa-circle-check"></i>
+                    No credit card
+                </div>
+                <div class="feature-item">
+                    <i class="fa-solid fa-shield"></i>
+                    14-day trial
+                </div>
+                <div class="feature-item">
+                    <i class="fa-solid fa-lock"></i>
+                    Secure platform
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-right">
+            <div class="dashboard float-animation">
+                <div class="top-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="chart-box">
+                    <div class="chart-line"></div>
+                </div>
+                <div class="stats-grid">
+                    <div class="card glass">
+                        <h2>+240%</h2>
+                        <p>Growth Rate</p>
+                    </div>
+                    <div class="card glass">
+                        <h2>98%</h2>
+                        <p>User Satisfaction</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOGOS -->
+    <section class="trusted-by reveal">
+        <p>Trusted by innovative teams worldwide</p>
+        <div class="logos">
+            <i class="fa-brands fa-aws"></i>
+            <i class="fa-brands fa-google"></i>
+            <i class="fa-brands fa-microsoft"></i>
+            <i class="fa-brands fa-slack"></i>
+            <i class="fa-brands fa-figma"></i>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features" id="features">
+        <div class="section-header reveal">
+            <h2>Powerful Features</h2>
+            <p>Everything you need to manage your business effectively and efficiently.</p>
+        </div>
+
+        <div class="feature-cards">
+            <div class="feature-box glass reveal">
+                <div class="icon-wrapper">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+                <h3>Live Analytics</h3>
+                <p>Track business growth with real-time insights and customizable dashboards tailored to your needs.</p>
+            </div>
+
+            <div class="feature-box glass reveal delay-1">
+                <div class="icon-wrapper">
+                    <i class="fa-solid fa-robot"></i>
+                </div>
+                <h3>AI Automation</h3>
+                <p>Automate repetitive workflows instantly. Let AI handle the mundane tasks while you focus on growth.</p>
+            </div>
+
+            <div class="feature-box glass reveal delay-2">
+                <div class="icon-wrapper">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <h3>Bank-grade Security</h3>
+                <p>Enterprise-level security, end-to-end encryption, and strict privacy controls to keep data safe.</p>
+            </div>
+            
+            <div class="feature-box glass reveal">
+                <div class="icon-wrapper">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                </div>
+                <h3>Cloud Sync</h3>
+                <p>Instantly sync your data across all devices. Access your work from anywhere at any time.</p>
+            </div>
+
+            <div class="feature-box glass reveal delay-1">
+                <div class="icon-wrapper">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+                <h3>Team Collaboration</h3>
+                <p>Work seamlessly with your team. Share files, assign tasks, and communicate in real-time.</p>
+            </div>
+
+            <div class="feature-box glass reveal delay-2">
+                <div class="icon-wrapper">
+                    <i class="fa-solid fa-bolt"></i>
+                </div>
+                <h3>Lightning Fast</h3>
+                <p>Built on modern architecture ensuring lightning-fast load times and zero lag in operations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="section-header reveal">
+            <h2>How It Works</h2>
+            <p>Get started in minutes, not days. It's really that simple.</p>
+        </div>
+        
+        <div class="steps-container">
+            <div class="step reveal">
+                <div class="step-number">1</div>
+                <h3>Create Account</h3>
+                <p>Sign up for your free 14-day trial. No credit card required to start exploring our platform.</p>
+            </div>
+            <div class="step reveal delay-1">
+                <div class="step-number">2</div>
+                <h3>Connect Tools</h3>
+                <p>Easily integrate with your existing tools like Slack, Google Workspace, and Microsoft 365.</p>
+            </div>
+            <div class="step reveal delay-2">
+                <div class="step-number">3</div>
+                <h3>Start Automating</h3>
+                <p>Set up your first automated workflow using our drag-and-drop builder and watch the magic happen.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="pricing" id="pricing">
+        <div class="section-header reveal">
+            <h2>Simple Pricing</h2>
+            <p>Choose the plan that best fits your needs. Scale as you grow.</p>
+        </div>
+
+        <div class="pricing-cards">
+            <div class="price-card glass reveal">
+                <h3>Starter</h3>
+                <h1>$19<span>/mo</span></h1>
+                <p>Perfect for startups and small projects</p>
+                <ul class="plan-features">
+                    <li><i class="fa-solid fa-check"></i> Up to 5 team members</li>
+                    <li><i class="fa-solid fa-check"></i> Basic analytics</li>
+                    <li><i class="fa-solid fa-check"></i> 10GB Cloud Storage</li>
+                    <li class="disabled"><i class="fa-solid fa-xmark"></i> Priority support</li>
+                </ul>
+                <button class="secondary-btn buy-btn">Choose Plan</button>
+            </div>
+
+            <div class="price-card active glass reveal delay-1">
+                <div class="popular-tag">Most Popular</div>
+                <h3>Professional</h3>
+                <h1>$49<span>/mo</span></h1>
+                <p>Best for growing teams and businesses</p>
+                <ul class="plan-features">
+                    <li><i class="fa-solid fa-check"></i> Up to 20 team members</li>
+                    <li><i class="fa-solid fa-check"></i> Advanced analytics & AI</li>
+                    <li><i class="fa-solid fa-check"></i> 100GB Cloud Storage</li>
+                    <li><i class="fa-solid fa-check"></i> Priority 24/7 support</li>
+                </ul>
+                <button class="primary-btn buy-btn">Choose Plan</button>
+            </div>
+
+            <div class="price-card glass reveal delay-2">
+                <h3>Enterprise</h3>
+                <h1>$99<span>/mo</span></h1>
+                <p>Advanced solution for large organizations</p>
+                <ul class="plan-features">
+                    <li><i class="fa-solid fa-check"></i> Unlimited team members</li>
+                    <li><i class="fa-solid fa-check"></i> Custom reporting</li>
+                    <li><i class="fa-solid fa-check"></i> Unlimited Storage</li>
+                    <li><i class="fa-solid fa-check"></i> Dedicated account manager</li>
+                </ul>
+                <button class="secondary-btn buy-btn">Choose Plan</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials" id="testimonials">
+        <div class="section-header reveal">
+            <h2>Loved By Users</h2>
+            <p>Don't just take our word for it. See what our customers have to say.</p>
+        </div>
+        
+        <div class="testimonial-cards">
+            <div class="testimonial-card glass reveal">
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p>"CloudSync completely transformed how our team works. The automation features alone saved us hundreds of hours last month."</p>
+                <div class="author">
+                    <img src="https://i.pravatar.cc/100?img=1" alt="User">
+                    <div>
+                        <h4>Sarah Jenkins</h4>
+                        <span>Product Manager, TechFlow</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card glass reveal delay-1">
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p>"The analytics dashboard gives us exactly the insights we need to make quick decisions. It's an indispensable tool for our agency."</p>
+                <div class="author">
+                    <img src="https://i.pravatar.cc/100?img=33" alt="User">
+                    <div>
+                        <h4>David Chen</h4>
+                        <span>CEO, CreativePulse</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card glass reveal delay-2">
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                </div>
+                <p>"Incredibly easy to set up and use. The UI is stunning, and the customer support is always there when you need them."</p>
+                <div class="author">
+                    <img src="https://i.pravatar.cc/100?img=47" alt="User">
+                    <div>
+                        <h4>Emily Rodriguez</h4>
+                        <span>Operations Director, Nexus</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+        <div class="section-header reveal">
+            <h2>Frequently Asked Questions</h2>
+            <p>Got questions? We've got answers.</p>
+        </div>
+        
+        <div class="faq-container reveal">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Can I cancel my subscription at any time?</h3>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, you can cancel your subscription at any time. If you cancel, you will still have access to the platform until the end of your current billing cycle.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Do I need a credit card for the free trial?</h3>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>No, you do not need to provide a credit card to start your 14-day free trial. You only need a credit card when you're ready to upgrade to a paid plan.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Is my data secure?</h3>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Security is our top priority. We use military-grade 256-bit AES encryption for data at rest and in transit. We are also SOC2 and GDPR compliant.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact reveal" id="contact">
+        <div class="contact-container glass">
+            <div class="contact-info">
+                <h2>Let's level up your brand, together</h2>
+                <p>You can reach us anytime via <a href="mailto:hello@cloudsync.com">hello@cloudsync.com</a></p>
+                <div class="social-links">
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#"><i class="fa-brands fa-github"></i></a>
+                    <a href="#"><i class="fa-brands fa-discord"></i></a>
+                </div>
+            </div>
+            <form id="contactForm">
+                <div class="input-group">
+                    <input type="text" placeholder="First Name" required />
+                    <input type="text" placeholder="Last Name" required />
+                </div>
+                <input type="email" placeholder="Email Address" required />
+                <textarea placeholder="How can we help you?" required></textarea>
+                <button class="primary-btn" type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo">
+                    <i class="fa-solid fa-cloud"></i>
+                    <span>CloudSync</span>
+                </div>
+                <p>Empowering businesses with smart automation and actionable insights.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Product</h3>
+                <a href="#">Features</a>
+                <a href="#">Integrations</a>
+                <a href="#">Pricing</a>
+                <a href="#">Changelog</a>
+            </div>
+            <div class="footer-col">
+                <h3>Company</h3>
+                <a href="#">About Us</a>
+                <a href="#">Careers</a>
+                <a href="#">Blog</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="footer-col">
+                <h3>Legal</h3>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Cookie Policy</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 CloudSync Inc. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- MODAL -->
+    <div class="modal" id="demoModal">
+        <div class="modal-content glass">
+            <span class="close-btn" id="closeModal">
+                &times;
+            </span>
+            <h2>CloudSync Demo</h2>
+            <p>Welcome to CloudSync — AI-powered SaaS automation platform.</p>
+            <div class="video-container">
+                <video controls width="100%">
+                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast">
+        <i class="fa-solid fa-rocket"></i> Welcome to CloudSync!
+    </div>
+
+    <!-- JS -->
+    <script src="script.js"></script>
+</body>
+
+</html>
