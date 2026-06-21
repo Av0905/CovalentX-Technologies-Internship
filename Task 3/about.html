@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — NEXUS Studio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ========== FIXED 3D NAVIGATION ========== -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="nav-brand">
+      <span class="brand-cube">
+        <span class="face front">N</span>
+        <span class="face back">X</span>
+        <span class="face top">N</span>
+        <span class="face bottom">X</span>
+      </span>
+      <span class="brand-text">NEXUS</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link" data-section="home">Home</a></li>
+      <li><a href="about.html" class="nav-link" data-section="about">About</a></li>
+      <li><a href="services.html" class="nav-link" data-section="services">Services</a></li>
+      <li><a href="portfolio.html" class="nav-link" data-section="portfolio">Work</a></li>
+      <li><a href="contact.html" class="nav-link" data-section="contact">Contact</a></li>
+    </ul>
+
+    <button class="nav-cta" id="navCta">Launch App</button>
+
+    <button class="hamburger" id="hamburger" aria-label="Toggle Navigation Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <ul>
+      <li><a href="index.html" class="mob-link">Home</a></li>
+      <li><a href="about.html" class="mob-link">About</a></li>
+      <li><a href="services.html" class="mob-link">Services</a></li>
+      <li><a href="portfolio.html" class="mob-link">Work</a></li>
+      <li><a href="contact.html" class="mob-link">Contact</a></li>
+    </ul>
+    <div class="mobile-drawer-footer">
+      <button class="nav-cta" style="width: 100%;">Launch App</button>
+    </div>
+  </div>
+
+  <!-- ========== ABOUT CONTENT ========== -->
+  <main>
+    <section id="about" class="page page-about">
+      <div class="page-content">
+        <div class="about-grid">
+          
+          <!-- Left Glass Panel: Brand Info & Stats -->
+          <div class="glass-card about-info">
+            <h2>About <span class="accent">NEXUS</span></h2>
+            <p class="about-lead">We live at the exact intersection of premium interactive design, real-time spatial experiences, and production-grade engineering.</p>
+            <p>Instead of building standard flat websites, we formulate sensory-rich digital landscapes. Every line of code, scroll threshold, and mouse movement is tailored to command attention and evoke absolute visual wonder.</p>
+            
+            <div class="stats-row">
+              <div class="stat">
+                <span class="stat-num">10+</span>
+                <span>Years Experience</span>
+              </div>
+              <div class="stat">
+                <span class="stat-num">250+</span>
+                <span>Global Launches</span>
+              </div>
+              <div class="stat">
+                <span class="stat-num">98%</span>
+                <span>Satisfaction Rate</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Glass Panel: Interactive Tabs -->
+          <div class="glass-card about-tabs">
+            <div class="tabs-header">
+              <button class="tab-btn active" data-tab="story">Our Story</button>
+              <button class="tab-btn" data-tab="vision">Our Vision</button>
+              <button class="tab-btn" data-tab="stack">Tech Stack</button>
+            </div>
+            
+            <div class="tabs-content">
+              <!-- Tab Story -->
+              <div class="tab-pane active" id="tab-story">
+                <h3>Crafting Digital Legacies</h3>
+                <p>Founded in 2016, NEXUS emerged from a simple realization: the web is predominantly flat, but human experiences are rich, spatial, and cognitive. We began as a boutique experiment. Today, we are a global, decentralized studio designing award-winning digital solutions for forward-thinking industries.</p>
+                <p>We push boundaries, reject cookie-cutter templates, and dedicate ourselves to high-fidelity, high-interaction frontend creations.</p>
+              </div>
+              
+              <!-- Tab Vision -->
+              <div class="tab-pane" id="tab-vision">
+                <h3>The Immersive Future</h3>
+                <p>We believe the next era of the web will be fully context-aware, three-dimensional, and performance-optimized. We develop spatial platforms that empower brands to stand out. Our vision is to elevate online experiences into highly interactive environments where visitors are active participants rather than passive scrollers.</p>
+              </div>
+              
+              <!-- Tab Tech Stack -->
+              <div class="tab-pane" id="tab-stack">
+                <h3>Our Arsenal</h3>
+                <p class="stack-desc">We leverage modern frameworks, low-level graphics processing tools, and state-of-the-art animations to build lag-free systems.</p>
+                <div class="stack-grid">
+                  <span class="stack-tag"><i class="icon-tag">⚡</i>WebGL / GLSL</span>
+                  <span class="stack-tag"><i class="icon-tag">🚀</i>Three.js / React</span>
+                  <span class="stack-tag"><i class="icon-tag">🎨</i>Tailwind & Vanilla CSS</span>
+                  <span class="stack-tag"><i class="icon-tag">📊</i>GSAP / Animations</span>
+                  <span class="stack-tag"><i class="icon-tag">⚙</i>Next.js / TypeScript</span>
+                  <span class="stack-tag"><i class="icon-tag">🔒</i>Node / WebSockets</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

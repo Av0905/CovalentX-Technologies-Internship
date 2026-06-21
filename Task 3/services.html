@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services — NEXUS Capabilities</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ========== FIXED 3D NAVIGATION ========== -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="nav-brand">
+      <span class="brand-cube">
+        <span class="face front">N</span>
+        <span class="face back">X</span>
+        <span class="face top">N</span>
+        <span class="face bottom">X</span>
+      </span>
+      <span class="brand-text">NEXUS</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link" data-section="home">Home</a></li>
+      <li><a href="about.html" class="nav-link" data-section="about">About</a></li>
+      <li><a href="services.html" class="nav-link" data-section="services">Services</a></li>
+      <li><a href="portfolio.html" class="nav-link" data-section="portfolio">Work</a></li>
+      <li><a href="contact.html" class="nav-link" data-section="contact">Contact</a></li>
+    </ul>
+
+    <button class="nav-cta" id="navCta">Launch App</button>
+
+    <button class="hamburger" id="hamburger" aria-label="Toggle Navigation Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <ul>
+      <li><a href="index.html" class="mob-link">Home</a></li>
+      <li><a href="about.html" class="mob-link">About</a></li>
+      <li><a href="services.html" class="mob-link">Services</a></li>
+      <li><a href="portfolio.html" class="mob-link">Work</a></li>
+      <li><a href="contact.html" class="mob-link">Contact</a></li>
+    </ul>
+    <div class="mobile-drawer-footer">
+      <button class="nav-cta" style="width: 100%;">Launch App</button>
+    </div>
+  </div>
+
+  <!-- ========== SERVICES CONTENT ========== -->
+  <main>
+    <section id="services" class="page page-services">
+      <div class="page-content">
+        
+        <!-- Header -->
+        <div class="section-header">
+          <h2>Our <span class="accent">Capabilities</span></h2>
+          <p>A specialized range of offerings crafted to elevate products above ordinary expectations.</p>
+        </div>
+
+        <!-- Services Tabs Selector Panel -->
+        <div class="glass-card services-tabs">
+          <div class="tabs-header">
+            <button class="tab-btn active" data-tab="design">Web Design</button>
+            <button class="tab-btn" data-tab="dev">Development</button>
+            <button class="tab-btn" data-tab="branding">Branding</button>
+            <button class="tab-btn" data-tab="analytics">Analytics</button>
+          </div>
+
+          <div class="tabs-content">
+            <!-- Tab Pane 1 (Web Design) -->
+            <div class="tab-pane active" id="tab-design">
+              <div class="service-content" style="text-align: left;">
+                <span class="icon" style="font-size: 3rem; margin-bottom: 1rem; display: inline-block;">⚡</span>
+                <h3 style="font-size: 1.6rem; margin-bottom: 0.8rem; font-family: 'Orbitron', sans-serif; color: var(--accent-1);">Spatial Web Design</h3>
+                <p style="font-size: 1.05rem; margin-bottom: 1.5rem; line-height: 1.7; color: var(--text-muted);">Immersive 3D interfaces with curated typography, custom lighting models, and high-fidelity rendering. Creating dynamic visual workflows that wow users at first touch.</p>
+                <ul class="service-bullets">
+                  <li>Interactive Design Systems</li>
+                  <li>Custom 3D Scene Modeling</li>
+                  <li>Sensory Feedback Design</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Tab Pane 2 (Development) -->
+            <div class="tab-pane" id="tab-dev">
+              <div class="service-content" style="text-align: left;">
+                <span class="icon" style="font-size: 3rem; margin-bottom: 1rem; display: inline-block;">🚀</span>
+                <h3 style="font-size: 1.6rem; margin-bottom: 0.8rem; font-family: 'Orbitron', sans-serif; color: var(--accent-1);">Creative Development</h3>
+                <p style="font-size: 1.05rem; margin-bottom: 1.5rem; line-height: 1.7; color: var(--text-muted);">Engineered with performance as a first-class citizen. Smooth frames, clean lifecycles, and rapid loading times. Fully web-responsive frameworks built for high-demand platforms.</p>
+                <ul class="service-bullets">
+                  <li>WebGL/WebGPU Pipelines</li>
+                  <li>Custom Physics Integration</li>
+                  <li>Universal Mobile Optimization</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Tab Pane 3 (Branding) -->
+            <div class="tab-pane" id="tab-branding">
+              <div class="service-content" style="text-align: left;">
+                <span class="icon" style="font-size: 3rem; margin-bottom: 1rem; display: inline-block;">🎨</span>
+                <h3 style="font-size: 1.6rem; margin-bottom: 0.8rem; font-family: 'Orbitron', sans-serif; color: var(--accent-1);">Brand Architecture</h3>
+                <p style="font-size: 1.05rem; margin-bottom: 1.5rem; line-height: 1.7; color: var(--text-muted);">Formulating identities that feel solid, dynamic, and memorable across all dimensions of product design. Custom color palettes, spacing patterns, and detailed voice guidelines.</p>
+                <ul class="service-bullets">
+                  <li>3D Corporate Logo Systems</li>
+                  <li>Dynamic Color/Aesthetic Logic</li>
+                  <li>Strategic Voice Formulation</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Tab Pane 4 (Analytics) -->
+            <div class="tab-pane" id="tab-analytics">
+              <div class="service-content" style="text-align: left;">
+                <span class="icon" style="font-size: 3rem; margin-bottom: 1rem; display: inline-block;">📊</span>
+                <h3 style="font-size: 1.6rem; margin-bottom: 0.8rem; font-family: 'Orbitron', sans-serif; color: var(--accent-1);">Growth Analytics</h3>
+                <p style="font-size: 1.05rem; margin-bottom: 1.5rem; line-height: 1.7; color: var(--text-muted);">Data-driven integration tracks, reports, and models user behaviors to continuously optimize interaction density. Multi-variant block diagnostics and performance tuning.</p>
+                <ul class="service-bullets">
+                  <li>Interaction Metric Tracking</li>
+                  <li>A/B Scene Rendering Tests</li>
+                  <li>Performance Diagnostic Audits</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

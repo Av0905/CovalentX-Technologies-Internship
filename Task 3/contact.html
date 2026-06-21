@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — NEXUS Connection</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ========== FIXED 3D NAVIGATION ========== -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="nav-brand">
+      <span class="brand-cube">
+        <span class="face front">N</span>
+        <span class="face back">X</span>
+        <span class="face top">N</span>
+        <span class="face bottom">X</span>
+      </span>
+      <span class="brand-text">NEXUS</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link" data-section="home">Home</a></li>
+      <li><a href="about.html" class="nav-link" data-section="about">About</a></li>
+      <li><a href="services.html" class="nav-link" data-section="services">Services</a></li>
+      <li><a href="portfolio.html" class="nav-link" data-section="portfolio">Work</a></li>
+      <li><a href="contact.html" class="nav-link" data-section="contact">Contact</a></li>
+    </ul>
+
+    <button class="nav-cta" id="navCta">Launch App</button>
+
+    <button class="hamburger" id="hamburger" aria-label="Toggle Navigation Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <ul>
+      <li><a href="index.html" class="mob-link">Home</a></li>
+      <li><a href="about.html" class="mob-link">About</a></li>
+      <li><a href="services.html" class="mob-link">Services</a></li>
+      <li><a href="portfolio.html" class="mob-link">Work</a></li>
+      <li><a href="contact.html" class="mob-link">Contact</a></li>
+    </ul>
+    <div class="mobile-drawer-footer">
+      <button class="nav-cta" style="width: 100%;">Launch App</button>
+    </div>
+  </div>
+
+  <!-- ========== CONTACT CONTENT ========== -->
+  <main>
+    <section id="contact" class="page page-contact">
+      <div class="page-content">
+        <div class="contact-grid">
+          
+          <!-- Left Glass Panel: Info & Socials -->
+          <div class="glass-card contact-info">
+            <div>
+              <h2>Let's Build <span class="accent">Legendary</span></h2>
+              <p>Have an ambitious project or a groundbreaking platform in mind? We'd love to collaborate on turning your spatial vision into digital reality.</p>
+            </div>
+            
+            <div class="contact-methods">
+              <!-- Method 1 -->
+              <div class="method-card">
+                <span class="method-icon">📍</span>
+                <div class="method-details">
+                  <h4>Spatial Coordinates</h4>
+                  <p>37.7749° N, 122.4194° W</p>
+                  <p class="method-sub">San Francisco, CA</p>
+                </div>
+              </div>
+
+              <!-- Method 2 -->
+              <div class="method-card">
+                <span class="method-icon">✉</span>
+                <div class="method-details">
+                  <h4>Secure Channel</h4>
+                  <p>hello@nexus-spatial.io</p>
+                  <p class="method-sub">Response within 12 hours</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Social Links -->
+            <div class="social-links">
+              <a href="#" class="social-tag twitter">Twitter</a>
+              <a href="#" class="social-tag github">Github</a>
+              <a href="#" class="social-tag linkedin">LinkedIn</a>
+            </div>
+          </div>
+
+          <!-- Right Glass Panel: Contact Form -->
+          <div class="glass-card contact-form-card">
+            <h3>Transmit <span class="accent">Inquiry</span></h3>
+            <p class="form-desc">Provide your parameters below to establish a secure connection.</p>
+            
+            <form class="contact-form" onsubmit="return false;">
+              <input type="text" placeholder="Your Name / Organization" class="form-input" required autocomplete="off" />
+              <input type="email" placeholder="Secure Email Address" class="form-input" required autocomplete="off" />
+              <textarea placeholder="Project Specifications..." class="form-input form-textarea" required></textarea>
+              <button type="submit" class="btn-primary">Establish Connection ✉</button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

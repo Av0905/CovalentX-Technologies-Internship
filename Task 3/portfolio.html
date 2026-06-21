@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work — NEXUS Case Studies</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ========== FIXED 3D NAVIGATION ========== -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="nav-brand">
+      <span class="brand-cube">
+        <span class="face front">N</span>
+        <span class="face back">X</span>
+        <span class="face top">N</span>
+        <span class="face bottom">X</span>
+      </span>
+      <span class="brand-text">NEXUS</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link" data-section="home">Home</a></li>
+      <li><a href="about.html" class="nav-link" data-section="about">About</a></li>
+      <li><a href="services.html" class="nav-link" data-section="services">Services</a></li>
+      <li><a href="portfolio.html" class="nav-link" data-section="portfolio">Work</a></li>
+      <li><a href="contact.html" class="nav-link" data-section="contact">Contact</a></li>
+    </ul>
+
+    <button class="nav-cta" id="navCta">Launch App</button>
+
+    <button class="hamburger" id="hamburger" aria-label="Toggle Navigation Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <ul>
+      <li><a href="index.html" class="mob-link">Home</a></li>
+      <li><a href="about.html" class="mob-link">About</a></li>
+      <li><a href="services.html" class="mob-link">Services</a></li>
+      <li><a href="portfolio.html" class="mob-link">Work</a></li>
+      <li><a href="contact.html" class="mob-link">Contact</a></li>
+    </ul>
+    <div class="mobile-drawer-footer">
+      <button class="nav-cta" style="width: 100%;">Launch App</button>
+    </div>
+  </div>
+
+  <!-- ========== PORTFOLIO CONTENT ========== -->
+  <main>
+    <section id="work" class="page page-work">
+      <div class="page-content">
+        
+        <!-- Header -->
+        <div class="section-header">
+          <h2>Selected <span class="accent">Case Studies</span></h2>
+          <p>Explore a collection of high-fidelity platforms built for top-tier technology clients.</p>
+        </div>
+
+        <!-- Portfolio Grid -->
+        <div class="portfolio-grid">
+          <!-- Item 1 -->
+          <div class="port-item p1" data-project="aether">
+            <div class="port-item-bg"></div>
+            <div class="port-content">
+              <span class="port-tag">Spatial Interface</span>
+              <h3>Aether VR</h3>
+              <p>Spatial headset environments rendered in real-time inside the browser.</p>
+              <span class="port-cta">Explore Case Study →</span>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="port-item p2" data-project="synthetix">
+            <div class="port-item-bg"></div>
+            <div class="port-content">
+              <span class="port-tag">AI / Neural Nets</span>
+              <h3>Synthetix AI</h3>
+              <p>High-throughput real-time diagnostic neural net visualization dashboard.</p>
+              <span class="port-cta">Explore Case Study →</span>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="port-item p3" data-project="krypton">
+            <div class="port-item-bg"></div>
+            <div class="port-content">
+              <span class="port-tag">Fintech / Web3</span>
+              <h3>Krypton DEX</h3>
+              <p>Decentralized multi-chain liquidity visualization with low-latency updates.</p>
+              <span class="port-cta">Explore Case Study →</span>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="port-item p4" data-project="chronos">
+            <div class="port-item-bg"></div>
+            <div class="port-content">
+              <span class="port-tag">SaaS / Productivity</span>
+              <h3>Chronos SaaS</h3>
+              <p>Advanced developer calendar and team-flow automation pipeline platform.</p>
+              <span class="port-cta">Explore Case Study →</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== PROJECT MODAL SYSTEM ========== -->
+  <div class="project-modal" id="projectModal" aria-hidden="true">
+    <div class="modal-backdrop"></div>
+    <div class="modal-container">
+      <button class="modal-close" id="modalClose" aria-label="Close Case Study">&times;</button>
+      <div class="modal-content" id="modalContent">
+        <!-- Injected via JavaScript dynamically based on data-project -->
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

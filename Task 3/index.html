@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS — Immersive Digital Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-cyan">
+
+  <!-- ========== FIXED 3D NAVIGATION ========== -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="nav-brand">
+      <span class="brand-cube">
+        <span class="face front">N</span>
+        <span class="face back">X</span>
+        <span class="face top">N</span>
+        <span class="face bottom">X</span>
+      </span>
+      <span class="brand-text">NEXUS</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link" data-section="home">Home</a></li>
+      <li><a href="about.html" class="nav-link" data-section="about">About</a></li>
+      <li><a href="services.html" class="nav-link" data-section="services">Services</a></li>
+      <li><a href="portfolio.html" class="nav-link" data-section="portfolio">Work</a></li>
+      <li><a href="contact.html" class="nav-link" data-section="contact">Contact</a></li>
+    </ul>
+
+    <button class="nav-cta" id="navCta">Launch App</button>
+
+    <button class="hamburger" id="hamburger" aria-label="Toggle Navigation Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <ul>
+      <li><a href="index.html" class="mob-link">Home</a></li>
+      <li><a href="about.html" class="mob-link">About</a></li>
+      <li><a href="services.html" class="mob-link">Services</a></li>
+      <li><a href="portfolio.html" class="mob-link">Work</a></li>
+      <li><a href="contact.html" class="mob-link">Contact</a></li>
+    </ul>
+    <div class="mobile-drawer-footer">
+      <button class="nav-cta" style="width: 100%;">Launch App</button>
+    </div>
+  </div>
+
+  <!-- ========== 3D HOLOGRAM DASHBOARD HOME ========== -->
+  <main>
+    <section id="home" class="page page-home">
+      <!-- Ambient backing lights -->
+      <div class="hero-orb"></div>
+      
+      <!-- 3D Perspective Viewport -->
+      <div class="perspective-viewport">
+        <!-- Hologram Screen -->
+        <div class="hologram-screen" id="hologramScreen">
+          <!-- Backing wireframe grid -->
+          <div class="wireframe-grid"></div>
+
+          <!-- Hologram content -->
+          <div class="hologram-content">
+            
+            <!-- Terminal Header -->
+            <div class="hologram-header layer-front">
+              <div>
+                <div class="status-badge">
+                  <span class="status-dot animate-pulse"></span>
+                  <span class="status-text">Matrix Link: Operational</span>
+                </div>
+                <h3 class="accent" style="font-family: 'Orbitron', sans-serif; letter-spacing: 0.1em; font-size: 0.9rem;">NEXUS COGNITIVE TERMINAL v1.82</h3>
+              </div>
+              <div class="diagnostics-meta">
+                <div class="meta-status-row">
+                  <span>NODE: NEXUS-01</span>
+                </div>
+                <span style="color: var(--text-muted); font-size: 0.75rem; font-family: inherit;">COORD: 37.7749N / 122.4194W</span>
+              </div>
+            </div>
+
+            <!-- Glitch Title and Description -->
+            <div class="layer-front" style="margin-bottom: 2rem;">
+              <h1 class="glitch-title" style="margin-bottom: 1rem;">ARCHITECTING THE <span class="gradient-text">SPATIAL WEB</span></h1>
+              <p style="font-size: 1.15rem; color: var(--text-muted); max-width: 650px;">
+                Welcome to NEXUS. Move your cursor over this screen to tilt the holographic terminal in 3D, or manually adjust parameters below to explore spatial perspective and depth layers.
+              </p>
+            </div>
+
+            <!-- 3D Controls Panel -->
+            <div class="hologram-controls layer-mid">
+              <div class="controls-title">3D Viewport Controls</div>
+              
+              <!-- Ranges grid -->
+              <div class="controls-row">
+                <!-- X Rotate -->
+                <div class="control-group">
+                  <label for="sliderX">X-Rotation <span class="control-value" id="valX">6°</span></label>
+                  <input type="range" id="sliderX" class="control-slider" min="-45" max="-5" value="6">
+                </div>
+                <!-- Y Rotate -->
+                <div class="control-group">
+                  <label for="sliderY">Y-Rotation <span class="control-value" id="valY">-10°</span></label>
+                  <input type="range" id="sliderY" class="control-slider" min="-45" max="45" value="-10">
+                </div>
+                <!-- Z Rotate -->
+                <div class="control-group">
+                  <label for="sliderZ">Z-Rotation <span class="control-value" id="valZ">0°</span></label>
+                  <input type="range" id="sliderZ" class="control-slider" min="-45" max="45" value="0">
+                </div>
+                <!-- Perspective -->
+                <div class="control-group">
+                  <label for="sliderP">Perspective <span class="control-value" id="valP">1200px</span></label>
+                  <input type="range" id="sliderP" class="control-slider" min="400" max="2000" value="1200">
+                </div>
+              </div>
+
+              <!-- Button actions row -->
+              <div class="controls-actions">
+                <div style="display: flex; gap: 8px;">
+                  <button class="btn-toggle active" id="btnAuto">Auto Hover Rotate</button>
+                  <button class="btn-toggle" id="btnManual">Manual Sliders</button>
+                  <button class="btn-toggle" id="btnGrid">Toggle 3D Grid</button>
+                </div>
+                
+                <!-- Neon Themes Dots -->
+                <div class="theme-selectors">
+                  <span class="theme-label">Interface Theme:</span>
+                  <div class="theme-dot dot-cyan selected" data-theme="cyan"></div>
+                  <div class="theme-dot dot-green" data-theme="green"></div>
+                  <div class="theme-dot dot-purple" data-theme="purple"></div>
+                  <div class="theme-dot dot-pink" data-theme="pink"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Nodes Diagnostic Panels -->
+            <div class="nodes-grid layer-mid">
+              <!-- Node 1 -->
+              <div class="node-panel">
+                <h4>NEURAL NODE CORE</h4>
+                <div class="node-status">
+                  <span class="node-status-dot pulsing"></span>
+                  <span>SYNCED</span>
+                </div>
+                <p>Telemetry nodes routing simulated synapses dynamically across standard HSL matrix layers.</p>
+                <div class="node-chart">
+                  <div class="node-bar" style="width: 82%;"></div>
+                </div>
+              </div>
+              
+              <!-- Node 2 -->
+              <div class="node-panel">
+                <h4>SPATIAL RENDER</h4>
+                <div class="node-status">
+                  <span class="node-status-dot pulsing" style="background:#10b981; box-shadow: 0 0 6px #10b981;"></span>
+                  <span>ONLINE</span>
+                </div>
+                <p>3D projection pipeline rendering nested depth items at a stable, responsive 60 FPS speed.</p>
+                <div class="node-chart">
+                  <div class="node-bar" style="width: 94%;"></div>
+                </div>
+              </div>
+
+              <!-- Node 3 -->
+              <div class="node-panel">
+                <h4>DATA PIPELINE</h4>
+                <div class="node-status">
+                  <span class="node-status-dot pulsing" style="background:#10b981; box-shadow: 0 0 6px #10b981;"></span>
+                  <span>CONNECTED</span>
+                </div>
+                <p>Simulating server packet exchanges and telemetry indicators across multiple threads.</p>
+                <div class="node-chart">
+                  <div class="node-bar" style="width: 65%;"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Live Terminal diagnostics -->
+            <div class="layer-mid" style="margin-bottom: 2rem;">
+              <h4 style="font-family: 'Orbitron', sans-serif; font-size: 0.85rem; letter-spacing: 0.1em; color: var(--accent-1); text-transform: uppercase; margin-bottom: 0.8rem;">System Diagnostic Stream</h4>
+              <div class="terminal-window" id="terminalWindow">
+                <!-- Appended dynamically via JS -->
+              </div>
+            </div>
+
+            <!-- Footer links inside screen -->
+            <div class="hologram-footer layer-front">
+              <span>Telemetry: Synchronized</span>
+              <div style="display: flex; gap: 1rem;">
+                <a href="services.html" class="btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.72rem;">Capabilities</a>
+                <a href="portfolio.html" class="btn-secondary" style="padding: 0.6rem 1.5rem; font-size: 0.72rem; border-color: rgba(226,232,240,0.2);">Work Showcase</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
