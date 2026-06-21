@@ -1,0 +1,559 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Advanced Tic Tac Toe</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      transition:0.4s;
+      background:linear-gradient(135deg,#141e30,#243b55);
+      color:white;
+      padding:20px;
+    }
+
+    body.light{
+      background:linear-gradient(135deg,#f5f7fa,#c3cfe2);
+      color:#111;
+    }
+
+    .container{
+      text-align:center;
+      width:100%;
+      max-width:520px;
+    }
+
+    h1{
+      margin-bottom:15px;
+      font-size:40px;
+    }
+
+    .mode-text{
+      margin-bottom:15px;
+      font-size:18px;
+      font-weight:bold;
+      color:#ffd54f;
+    }
+
+    .scoreboard{
+      display:flex;
+      justify-content:space-between;
+      margin-bottom:20px;
+      gap:10px;
+    }
+
+    .score-box{
+      flex:1;
+      padding:12px;
+      border-radius:12px;
+      background:rgba(255,255,255,0.1);
+      backdrop-filter:blur(10px);
+      font-weight:bold;
+      box-shadow:0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .status{
+      font-size:22px;
+      margin-bottom:20px;
+      font-weight:bold;
+      min-height:30px;
+    }
+
+    .board{
+      display:grid;
+      grid-template-columns:repeat(3,110px);
+      gap:10px;
+      justify-content:center;
+      margin:auto;
+    }
+
+    .cell{
+      width:110px;
+      height:110px;
+      background:rgba(255,255,255,0.1);
+      border-radius:15px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      font-size:55px;
+      cursor:pointer;
+      transition:0.3s;
+      user-select:none;
+      box-shadow:0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .cell:hover{
+      transform:scale(1.05);
+      background:rgba(255,255,255,0.2);
+    }
+
+    .x{
+      color:#00e5ff;
+    }
+
+    .o{
+      color:#ff4081;
+    }
+
+    .winner{
+      background:#00c853 !important;
+      color:white !important;
+      animation:blink 0.6s infinite;
+    }
+
+    @keyframes blink{
+      50%{
+        opacity:0.7;
+      }
+    }
+
+    .controls{
+      margin-top:25px;
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:10px;
+    }
+
+    button, select{
+      padding:12px 18px;
+      border:none;
+      border-radius:10px;
+      font-weight:bold;
+      cursor:pointer;
+      font-size:15px;
+      transition:0.3s;
+    }
+
+    button:hover{
+      transform:translateY(-2px);
+    }
+
+    .restart{
+      background:#00c853;
+      color:white;
+    }
+
+    .mode{
+      background:#2962ff;
+      color:white;
+    }
+
+    .theme{
+      background:#ff9800;
+      color:white;
+    }
+
+    .online{
+      background:#9c27b0;
+      color:white;
+    }
+
+    select{
+      background:white;
+    }
+
+    @media(max-width:500px){
+
+      .board{
+        grid-template-columns:repeat(3,90px);
+      }
+
+      .cell{
+        width:90px;
+        height:90px;
+        font-size:45px;
+      }
+
+      h1{
+        font-size:32px;
+      }
+
+      .status{
+        font-size:18px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>🎮 Tic Tac Toe</h1>
+
+    <div class="mode-text" id="modeText">
+      👥 Two Player Mode
+    </div>
+
+    <div class="scoreboard">
+      <div class="score-box">❌ X : <span id="xScore">0</span></div>
+      <div class="score-box">🤝 Draw : <span id="drawScore">0</span></div>
+      <div class="score-box">⭕ O : <span id="oScore">0</span></div>
+    </div>
+
+    <div class="status" id="status">
+      Player X Turn
+    </div>
+
+    <div class="board">
+
+      <div class="cell" data-index="0"></div>
+      <div class="cell" data-index="1"></div>
+      <div class="cell" data-index="2"></div>
+
+      <div class="cell" data-index="3"></div>
+      <div class="cell" data-index="4"></div>
+      <div class="cell" data-index="5"></div>
+
+      <div class="cell" data-index="6"></div>
+      <div class="cell" data-index="7"></div>
+      <div class="cell" data-index="8"></div>
+
+    </div>
+
+    <div class="controls">
+
+      <button class="restart" onclick="restartGame()">
+        🔄 Restart
+      </button>
+
+      <button class="mode" onclick="toggleMode()">
+        🤖 Toggle AI
+      </button>
+
+      <button class="theme" onclick="toggleTheme()">
+        🌙 Dark / Light
+      </button>
+
+      <button class="online" onclick="onlineMode()">
+        🌐 Online
+      </button>
+
+      <select id="difficulty">
+        <option value="easy">Easy AI</option>
+        <option value="medium">Medium AI</option>
+        <option value="hard">Hard AI</option>
+      </select>
+
+    </div>
+
+  </div>
+
+  <script>
+
+    const cells = document.querySelectorAll(".cell");
+
+    const statusText = document.getElementById("status");
+
+    const modeText = document.getElementById("modeText");
+
+    const xScoreText = document.getElementById("xScore");
+    const oScoreText = document.getElementById("oScore");
+    const drawScoreText = document.getElementById("drawScore");
+
+    let currentPlayer = "X";
+
+    let gameState = ["","","","","","","","",""];
+
+    let gameActive = true;
+
+    let aiMode = false;
+
+    let xScore = 0;
+    let oScore = 0;
+    let drawScore = 0;
+
+    const winConditions = [
+      [0,1,2],
+      [3,4,5],
+      [6,7,8],
+      [0,3,6],
+      [1,4,7],
+      [2,5,8],
+      [0,4,8],
+      [2,4,6]
+    ];
+
+    cells.forEach(cell => {
+      cell.addEventListener("click", handleClick);
+    });
+
+    function handleClick(e){
+
+      const cell = e.target;
+
+      const index = cell.dataset.index;
+
+      if(gameState[index] !== "" || !gameActive){
+        return;
+      }
+
+      if(aiMode && currentPlayer === "O"){
+        return;
+      }
+
+      makeMove(cell,index);
+
+      if(aiMode && gameActive && currentPlayer === "O"){
+        setTimeout(aiMove,500);
+      }
+    }
+
+    function makeMove(cell,index){
+
+      gameState[index] = currentPlayer;
+
+      cell.textContent = currentPlayer;
+
+      cell.classList.add(currentPlayer.toLowerCase());
+
+      checkWinner();
+
+      if(gameActive){
+
+        currentPlayer = currentPlayer === "X" ? "O" : "X";
+
+        statusText.textContent =
+          `Player ${currentPlayer} Turn`;
+      }
+    }
+
+    function checkWinner(){
+
+      for(let condition of winConditions){
+
+        const [a,b,c] = condition;
+
+        if(
+          gameState[a] &&
+          gameState[a] === gameState[b] &&
+          gameState[a] === gameState[c]
+        ){
+
+          gameActive = false;
+
+          cells[a].classList.add("winner");
+          cells[b].classList.add("winner");
+          cells[c].classList.add("winner");
+
+          statusText.textContent =
+            `🎉 Player ${gameState[a]} Wins!`;
+
+          if(gameState[a] === "X"){
+
+            xScore++;
+            xScoreText.textContent = xScore;
+
+          }else{
+
+            oScore++;
+            oScoreText.textContent = oScore;
+          }
+
+          playWinSound();
+
+          return;
+        }
+      }
+
+      if(!gameState.includes("")){
+
+        gameActive = false;
+
+        drawScore++;
+
+        drawScoreText.textContent = drawScore;
+
+        statusText.textContent =
+          "🤝 Match Draw!";
+
+        playDrawSound();
+      }
+    }
+
+    function restartGame(){
+
+      gameState = ["","","","","","","","",""];
+
+      gameActive = true;
+
+      currentPlayer = "X";
+
+      statusText.textContent =
+        "Player X Turn";
+
+      cells.forEach(cell => {
+
+        cell.textContent = "";
+
+        cell.classList.remove(
+          "x",
+          "o",
+          "winner"
+        );
+      });
+    }
+
+    function toggleMode(){
+
+      aiMode = !aiMode;
+
+      if(aiMode){
+
+        modeText.textContent =
+          "🤖 AI Mode Enabled";
+
+        alert(
+          "AI Mode Enabled 🤖\nPlayer O is Computer"
+        );
+
+      }else{
+
+        modeText.textContent =
+          "👥 Two Player Mode";
+
+        alert(
+          "Two Player Mode Enabled 👥\nPlay with your friend on same device"
+        );
+      }
+
+      restartGame();
+    }
+
+    function toggleTheme(){
+
+      document.body.classList.toggle("light");
+    }
+
+    function onlineMode(){
+
+      alert(
+        "🌐 Online Multiplayer needs Backend using Firebase or Socket.io"
+      );
+    }
+
+    function aiMove(){
+
+      let difficulty =
+        document.getElementById("difficulty").value;
+
+      let emptyCells = [];
+
+      gameState.forEach((cell,index)=>{
+
+        if(cell === ""){
+          emptyCells.push(index);
+        }
+      });
+
+      if(emptyCells.length === 0){
+        return;
+      }
+
+      let move;
+
+      if(difficulty === "easy"){
+
+        move =
+          emptyCells[
+            Math.floor(Math.random()*emptyCells.length)
+          ];
+
+      }else if(difficulty === "medium"){
+
+        move = emptyCells[0];
+
+      }else{
+
+        move = bestMove();
+      }
+
+      const cell =
+        document.querySelector(
+          `[data-index='${move}']`
+        );
+
+      if(!cell){
+        return;
+      }
+
+      makeMove(cell,move);
+    }
+
+    function bestMove(){
+
+      for(let condition of winConditions){
+
+        let [a,b,c] = condition;
+
+        let values = [
+          gameState[a],
+          gameState[b],
+          gameState[c]
+        ];
+
+        if(
+          values.filter(v => v === "O").length === 2 &&
+          values.includes("")
+        ){
+
+          if(gameState[a] === "") return a;
+
+          if(gameState[b] === "") return b;
+
+          if(gameState[c] === "") return c;
+        }
+      }
+
+      let empty = [];
+
+      gameState.forEach((cell,index)=>{
+
+        if(cell === ""){
+          empty.push(index);
+        }
+      });
+
+      return empty[
+        Math.floor(Math.random()*empty.length)
+      ];
+    }
+
+    function playWinSound(){
+
+      let audio = new Audio(
+        "https://www.soundjay.com/buttons/sounds/button-3.mp3"
+      );
+
+      audio.play();
+    }
+
+    function playDrawSound(){
+
+      let audio = new Audio(
+        "https://www.soundjay.com/buttons/sounds/button-10.mp3"
+      );
+
+      audio.play();
+    }
+
+  </script>
+
+</body>
+</html>
+
