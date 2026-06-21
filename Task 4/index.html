@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyCast 3D - Atmospheric Weather Visualizer</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Three.js for 3D Atmospheric Rendering -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="bg-glow"></div>
+    <div class="app-wrapper">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="brand">
+                <div class="logo-sphere"></div>
+                <h1>SkyCast <span>3D</span></h1>
+            </div>
+            
+            <div class="search-container">
+                <div class="search-bar">
+                    <i data-lucide="search" class="search-icon"></i>
+                    <input type="text" id="city-input" placeholder="Search city (e.g. New York, London)..." autocomplete="off">
+                    <button id="search-btn" class="icon-btn search-submit-btn" title="Search weather">
+                        <i data-lucide="arrow-right"></i>
+                    </button>
+                </div>
+                <button id="geo-btn" class="icon-btn action-btn" title="Use current location">
+                    <i data-lucide="map-pin"></i>
+                </button>
+                <button id="settings-toggle-btn" class="icon-btn action-btn" title="API Settings">
+                    <i data-lucide="settings"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Dashboard -->
+        <main class="dashboard-grid">
+            <!-- Left Side: Interactive 3D Weather Chamber -->
+            <section class="visualizer-panel glass-card">
+                <div class="card-header-label">
+                    <span class="live-tag"><span class="pulse-dot"></span> LIVE 3D CHAMBER</span>
+                    <span id="visualizer-state" class="state-label">Atmosphere</span>
+                </div>
+                <!-- Three.js Canvas Container -->
+                <div id="canvas-container" class="canvas-wrapper">
+                    <!-- Loading overlay for canvas -->
+                    <div id="canvas-loader" class="canvas-overlay">
+                        <div class="spinner"></div>
+                        <p>Simulating atmosphere...</p>
+                    </div>
+                </div>
+                <div class="visualizer-hint">
+                    <i data-lucide="mouse-pointer-click"></i> Hover to shift 3D camera
+                </div>
+            </section>
+
+            <!-- Right Side: Weather Data & Panels -->
+            <section class="info-panel">
+                <!-- Status/Error Alerts -->
+                <div id="loading" class="glass-card status-card hidden">
+                    <div class="loading-spinner"></div>
+                    <p>Fetching real-time atmospheric data...</p>
+                </div>
+                <div id="error-msg" class="glass-card status-card error-card hidden">
+                    <i data-lucide="alert-triangle"></i>
+                    <span id="error-text">Failed to fetch weather.</span>
+                </div>
+
+                <!-- Active Weather Display -->
+                <div id="weather-card" class="weather-data-content">
+                    <!-- Main Card -->
+                    <div class="main-stats-card glass-card">
+                        <div class="weather-meta">
+                            <div>
+                                <h2 id="location-name">San Francisco, US</h2>
+                                <p id="local-time" class="time-stamp">Monday, 12:00 PM</p>
+                            </div>
+                            <span id="demo-indicator" class="demo-tag hidden">DEMO MODE</span>
+                        </div>
+
+                        <div class="temp-display-wrapper">
+                            <div class="temp-main">
+                                <span id="temperature">21</span><span class="degree-symbol">°C</span>
+                            </div>
+                            <div class="weather-condition-wrapper">
+                                <div class="condition-badge">
+                                    <img id="weather-icon" src="" alt="Weather Icon" class="condition-icon">
+                                    <span id="weather-desc">Scattered Clouds</span>
+                                </div>
+                                <div class="temp-range">
+                                    <span id="temp-max"><i data-lucide="arrow-up"></i> 24°C</span>
+                                    <span class="divider">|</span>
+                                    <span id="temp-min"><i data-lucide="arrow-down"></i> 15°C</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Metrics Grid -->
+                    <div class="metrics-grid">
+                        <div class="metric-card glass-card">
+                            <div class="metric-icon humidity-icon">
+                                <i data-lucide="droplets"></i>
+                            </div>
+                            <div class="metric-info">
+                                <span class="label">Humidity</span>
+                                <span id="humidity" class="value">--%</span>
+                            </div>
+                        </div>
+
+                        <div class="metric-card glass-card">
+                            <div class="metric-icon wind-icon">
+                                <i data-lucide="wind"></i>
+                            </div>
+                            <div class="metric-info">
+                                <span class="label">Wind Speed</span>
+                                <span id="wind-speed" class="value">-- m/s</span>
+                            </div>
+                        </div>
+
+                        <div class="metric-card glass-card">
+                            <div class="metric-icon pressure-icon">
+                                <i data-lucide="gauge"></i>
+                            </div>
+                            <div class="metric-info">
+                                <span class="label">Pressure</span>
+                                <span id="pressure" class="value">-- hPa</span>
+                            </div>
+                        </div>
+
+                        <div class="metric-card glass-card">
+                            <div class="metric-icon visibility-icon">
+                                <i data-lucide="eye"></i>
+                            </div>
+                            <div class="metric-info">
+                                <span class="label">Visibility</span>
+                                <span id="visibility" class="value">-- km</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5-Day Forecast -->
+                    <div class="forecast-card glass-card">
+                        <h3><i data-lucide="calendar"></i> 5-Day Atmospheric Forecast</h3>
+                        <div id="forecast-container" class="forecast-scroller">
+                            <!-- Forecast items generated in JS -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- API Settings Sidebar Drawer -->
+        <div id="settings-panel" class="settings-drawer glass-panel">
+            <div class="drawer-header">
+                <h3><i data-lucide="sliders"></i> App Configuration</h3>
+                <button id="settings-close-btn" class="icon-btn close-btn">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            
+            <div class="drawer-content">
+                <!-- Mode Toggle -->
+                <div class="settings-section mode-selector-card">
+                    <label class="toggle-container">
+                        <input type="checkbox" id="demo-mode-checkbox" checked>
+                        <span class="toggle-slider"></span>
+                        <div class="toggle-text">
+                            <strong>Interactive Demo Mode</strong>
+                            <span>Simulate weather without API keys</span>
+                        </div>
+                    </label>
+                </div>
+
+                <!-- Demo Customizer (only visible/styled for demo mode) -->
+                <div id="demo-controls" class="settings-section">
+                    <h4>Simulate Atmosphere</h4>
+                    <p class="section-hint">Instantly switch 3D particle systems and gradients:</p>
+                    <div class="demo-grid">
+                        <button class="demo-weather-btn active" data-weather="sunny">
+                            <i data-lucide="sun"></i> Sunny
+                        </button>
+                        <button class="demo-weather-btn" data-weather="cloudy">
+                            <i data-lucide="cloud"></i> Cloudy
+                        </button>
+                        <button class="demo-weather-btn" data-weather="rainy">
+                            <i data-lucide="cloud-rain"></i> Rainy
+                        </button>
+                        <button class="demo-weather-btn" data-weather="stormy">
+                            <i data-lucide="cloud-lightning"></i> Stormy
+                        </button>
+                        <button class="demo-weather-btn" data-weather="snowy">
+                            <i data-lucide="snowflake"></i> Snowy
+                        </button>
+                    </div>
+                </div>
+
+                <!-- API Connection Form -->
+                <div class="settings-section">
+                    <h4>OpenWeatherMap API Connection</h4>
+                    
+                    <!-- Steps Details -->
+                    <div class="api-steps">
+                        <div class="step-item">
+                            <span class="step-num">1</span>
+                            <p>Register a free account at <a href="https://openweathermap.org/" target="_blank" rel="noopener">openweathermap.org <i data-lucide="external-link" class="inline-icon"></i></a></p>
+                        </div>
+                        <div class="step-item">
+                            <span class="step-num">2</span>
+                            <p>Navigate to your Member Dashboard and go to the <strong>API Keys</strong> tab.</p>
+                        </div>
+                        <div class="step-item">
+                            <span class="step-num">3</span>
+                            <p>Create a key named <code>SkyCast</code> and copy it (new keys take ~15 mins to activate).</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="api-key-input">Enter API Key</label>
+                        <div class="input-with-button">
+                            <input type="password" id="api-key-input" placeholder="Paste your API key here..." autocomplete="off">
+                            <button id="toggle-key-visibility" class="icon-btn" type="button" title="Show/Hide">
+                                <i data-lucide="eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons-group">
+                        <button id="save-api-btn" class="primary-btn">
+                            <i data-lucide="check"></i> Save & Connect API
+                        </button>
+                        <button id="clear-api-btn" class="secondary-btn">
+                            Clear Saved Key
+                        </button>
+                    </div>
+                    
+                    <div id="api-status-indicator" class="api-status-banner warning">
+                        <i data-lucide="help-circle"></i>
+                        <span>Using offline Demo Mode</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Backdrop blur overlay when sidebar is open -->
+        <div id="sidebar-overlay" class="drawer-overlay hidden"></div>
+        
+        <!-- Footer -->
+        <footer class="app-footer">
+            <p>Designed with premium 3D graphics & glassmorphism. Powered by OpenWeatherMap API & Three.js.</p>
+        </footer>
+    </div>
+
+    <!-- Core Javascript Code -->
+    <script src="app.js"></script>
+</body>
+</html>
